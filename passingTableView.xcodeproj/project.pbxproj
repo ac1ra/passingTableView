@@ -49,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A41F988725923C6E008A069E /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				A41B3F9A259114E10035454C /* TV_ViewController.swift */,
+				A41B3F9D259114FD0035454C /* TV_TableViewCell.swift */,
+				A41B3FA02591166F0035454C /* TV_detailViewController.swift */,
+			);
+			path = "Table View";
+			sourceTree = "<group>";
+		};
 		A424AFBE258B51D800A49E5C = {
 			isa = PBXGroup;
 			children = (
@@ -75,14 +85,20 @@
 				A424AFD3258B51DC00A49E5C /* Assets.xcassets */,
 				A424AFD5258B51DC00A49E5C /* LaunchScreen.storyboard */,
 				A424AFD8258B51DC00A49E5C /* Info.plist */,
+				A434E53C25923CA200274992 /* Table View Controller */,
+				A41F988725923C6E008A069E /* Table View */,
+			);
+			path = passingTableView;
+			sourceTree = "<group>";
+		};
+		A434E53C25923CA200274992 /* Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
 				A41B3F902590A38A0035454C /* TVC_TableViewCell.swift */,
 				A41B3F932590A55C0035454C /* TVC_TableViewController.swift */,
 				A41B3F962590BBFE0035454C /* detailViewController.swift */,
-				A41B3F9A259114E10035454C /* TV_ViewController.swift */,
-				A41B3F9D259114FD0035454C /* TV_TableViewCell.swift */,
-				A41B3FA02591166F0035454C /* TV_detailViewController.swift */,
 			);
-			path = passingTableView;
+			path = "Table View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

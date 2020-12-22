@@ -7,10 +7,26 @@
 
 import UIKit
 
+struct city_2 {
+    var name: String
+    var img: UIImage!
+}
+
 class TVC_TableViewController: UITableViewController {
 
-    var arrayName:[String] = ["istanbul","kyoto","london","newyork","rome","santorini","sydney","zurich"]
-    var arrayImage:[UIImage?] = [UIImage(named: "istanbul"),UIImage(named: "kyoto"),UIImage(named: "london"),UIImage(named: "newyork"),UIImage(named: "rome"),UIImage(named: "santorini"),UIImage(named: "sydney"),UIImage(named: "zurich")]
+    let citites = [
+        city_2(name:"istanbul", img: UIImage(named:"istanbul")),
+        city_2(name:"kyoto", img: UIImage(named:"kyoto")),
+        city_2(name:"london", img: UIImage(named:"london")),
+        city_2(name:"newyork", img: UIImage(named:"newyork")),
+        city_2(name:"rome", img: UIImage(named:"rome")),
+        city_2(name:"santorini", img: UIImage(named:"santorini")),
+        city_2(name:"sydney", img: UIImage(named:"sydney")),
+        city_2(name:"zurich", img: UIImage(named:"zurich"))
+    ]
+    
+//    var arrayName:[String] = ["istanbul","kyoto","london","newyork","rome","santorini","sydney","zurich"]
+//    var arrayImage:[UIImage?] = [UIImage(named: "istanbul"),UIImage(named: "kyoto"),UIImage(named: "london"),UIImage(named: "newyork"),UIImage(named: "rome"),UIImage(named: "santorini"),UIImage(named: "sydney"),UIImage(named: "zurich")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +47,15 @@ class TVC_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arrayName.count
+        return citites.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TVC_TableViewCell
 
         // Configure the cell...
-        cell.TVC_label.text = arrayName[indexPath.row]
-        cell.TVC_image.image = arrayImage[indexPath.row]
+        cell.TVC_label.text = citites[indexPath.row].name
+        cell.TVC_image.image = citites[indexPath.row].img
 
         return cell
     }
@@ -53,8 +69,8 @@ class TVC_TableViewController: UITableViewController {
             let indexPath = indexPaths[0] as NSIndexPath
             
             let vc = segue.destination as! detailViewController
-            vc.image_img = self.arrayImage[indexPath.row]
-            vc.name_txt = self.arrayName[indexPath.row]
+            vc.image_img = self.citites[indexPath.row].img
+            vc.name_txt = self.citites[indexPath.row].name
         }
     }
     /*

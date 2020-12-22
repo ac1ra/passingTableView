@@ -6,11 +6,23 @@
 //
 
 import UIKit
+struct city {
+    var name: String
+    var img: UIImage!
+}
 
 class TV_ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var arrayName_scnd:[String] = ["istanbul","kyoto","london","newyork","rome","santorini","sydney","zurich"]
-    var arrayImage_scnd:[UIImage?] = [UIImage(named: "istanbul"),UIImage(named: "kyoto"),UIImage(named: "london"),UIImage(named: "newyork"),UIImage(named: "rome"),UIImage(named: "santorini"),UIImage(named: "sydney"),UIImage(named: "zurich")]
+    let cities = [
+        city(name: "istanbul", img: UIImage(named: "istanbul")),
+        city(name: "kyoto", img: UIImage(named: "kyoto")),
+        city(name: "london", img: UIImage(named: "london")),
+        city(name: "newyork", img: UIImage(named: "newyork")),
+        city(name: "rome", img: UIImage(named: "rome")),
+        city(name: "santorini", img: UIImage(named: "santorini")),
+        city(name: "sydney", img: UIImage(named: "sydney")),
+        city(name: "zurich", img: UIImage(named: "zurich"))
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,21 +31,21 @@ class TV_ViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayName_scnd.count
+        return cities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_tv", for: indexPath) as! TV_TableViewCell
-        cell.label_scnd.text = arrayName_scnd[indexPath.row]
-        cell.image_scnd.image = arrayImage_scnd[indexPath.row]
+        cell.label_scnd.text = cities[indexPath.row].name
+        cell.image_scnd.image = cities[indexPath.row].img
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "sending_detailVC") as! TV_detailViewController
         
-        vc.img_det = arrayImage_scnd[indexPath.row]
-        vc.str_det = arrayName_scnd[indexPath.row]
+        vc.img_det = cities[indexPath.row].img
+        vc.str_det = cities[indexPath.row].name
         
         navigationController?.pushViewController(vc, animated: true)
     }
